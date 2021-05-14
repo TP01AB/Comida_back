@@ -40,11 +40,14 @@ class PassportAuthController extends Controller
             'password' => $request->password
         ];
 
-        if (auth()->attempt($data)) {
-            $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
-            return response()->json(['token' => $token], 200);
-        } else {
-            return response()->json(['error' => 'Unauthorised'], 401);
+        if (!auth()->attempt($loginData)) {
+            return response()->json(['message' => 'Login incorrecto. Revise las credenciales.', 'code' => 400], 400);
+        }
+        $Token = auth()->user()->createToken('authToken')->accessToken;
+        $us = auth()->user();
+        if ($us->isActive === 1) {
+            $rol = RolController::getRol($us->id);
+
         }
     }
 }
