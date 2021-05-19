@@ -40,7 +40,7 @@ class PassportAuthController extends Controller
             'password' => $request->password
         ];
 
-        if (!auth()->attempt($loginData)) {
+        if (!auth()->attempt($data)) {
             return response()->json(['message' => 'Login incorrecto. Revise las credenciales.', 'code' => 400], 400);
         }
         $Token = auth()->user()->createToken('authToken')->accessToken;
