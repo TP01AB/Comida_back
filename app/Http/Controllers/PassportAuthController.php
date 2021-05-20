@@ -35,19 +35,17 @@ class PassportAuthController extends Controller
      */
     public function login(Request $request)
     {
-        $data = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
+        $data = $request->validate([
+            'email' => 'email|required',
+            'password' => 'required'
+        ]);
 
-        if (!auth()->attempt($loginData)) {
+        if (!auth()->attempt($data)) {
             return response()->json(['message' => 'Login incorrecto. Revise las credenciales.', 'code' => 400], 400);
-        }
-        $Token = auth()->user()->createToken('authToken')->accessToken;
-        $us = auth()->user();
-        if ($us->isActive === 1) {
-            $rol = RolController::getRol($us->id);
-
+        }else{
+            $Token = auth()->user()->createToken('authToken')->accessToken;
+            $us = auth()->user();
+            return response()->json(['message' => ['user' => auth()->user(), 'access_token' => $Token, 'code' => 200] ,200]);
         }
     }
 }
