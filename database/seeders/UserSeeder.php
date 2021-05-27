@@ -26,10 +26,6 @@ class UserSeeder extends Seeder
         $u->name='Administrador';
         $u->lastname='Generico';
         $u->phone = $fak->numberBetween(600000000, 799999999);
-        $u->city = 'Pedro Muñoz';
-        $u->CP='13620';
-        $u->address=$fak->address;
-        $u->birthdate= $fak->date('Y-m-d');
         $u->isActive = 1;
         $u->save();
 
@@ -42,10 +38,6 @@ class UserSeeder extends Seeder
         $u->name = 'Israel';
         $u->lastname = 'Molina Pulpon';
         $u->phone = $fak->numberBetween(600000000, 799999999);
-        $u->city = 'Pedro Muñoz';
-        $u->CP = '13620';
-        $u->address = 'Esparteros 11';
-        $u->birthdate = $fak->date('Y-m-d');
         $u->isActive = 1;
         $u->save();
 
@@ -58,10 +50,6 @@ class UserSeeder extends Seeder
         $u->name = 'Sara';
         $u->lastname = 'Cordoba Castaño';
         $u->phone = $fak->numberBetween(600000000, 799999999);
-        $u->city = 'Pedro Muñoz';
-        $u->CP = '13620';
-        $u->address = 'Gregorio marañon 28';
-        $u->birthdate = $fak->date('Y-m-d');
         $u->isActive = 1;
         $u->save();
 
@@ -74,10 +62,6 @@ class UserSeeder extends Seeder
         $u->name = 'Arantxa';
         $u->lastname = 'Lopez Rodriguez';
         $u->phone = $fak->numberBetween(600000000, 799999999);
-        $u->city = 'Pedro Muñoz';
-        $u->CP = '13620';
-        $u->address = 'Garcia Morato 34';
-        $u->birthdate = $fak->date('Y-m-d');
         $u->isActive = 1;
         $u->save();
 
@@ -90,10 +74,6 @@ class UserSeeder extends Seeder
         $u->name = 'Ignacio';
         $u->lastname = 'Molina Lopez';
         $u->phone = $fak->numberBetween(600000000, 799999999);
-        $u->city = 'Pedro Muñoz';
-        $u->CP = '13620';
-        $u->address = 'Esparteros 11';
-        $u->birthdate = $fak->date('Y-m-d');
         $u->isActive = 1;
         $u->save();
     }
